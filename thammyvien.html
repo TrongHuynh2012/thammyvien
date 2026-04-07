@@ -1,1 +1,1121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière Aesthetics — Thẩm Mỹ Viện Quốc Tế</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #f2c4ce;
+    --blush-light: #fdf0f3;
+    --blush-mid: #e8a8b8;
+    --porcelain: #faf8f6;
+    --ivory: #f5f0eb;
+    --rose-gold: #c9937a;
+    --deep: #3a2d35;
+    --muted: #8a7580;
+    --white: #ffffff;
+    --shadow: 0 8px 48px rgba(58,45,53,0.08);
+    --shadow-lg: 0 24px 80px rgba(58,45,53,0.14);
+  }
 
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--porcelain);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed; top:0; width:100%; z-index:900;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 60px;
+    background: rgba(250,248,246,0.88);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(242,196,206,0.3);
+    transition: all 0.4s;
+  }
+  .nav-logo {
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px; font-weight:600; letter-spacing:2px;
+    color:var(--deep);
+  }
+  .nav-logo span { color:var(--rose-gold); }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a {
+    font-size:13px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--muted); text-decoration:none; font-weight:400;
+    transition:color 0.3s;
+  }
+  .nav-links a:hover { color:var(--deep); }
+  .nav-cta {
+    background: var(--deep); color:var(--white);
+    padding:12px 28px; font-size:12px; letter-spacing:2px;
+    text-transform:uppercase; border:none; cursor:pointer;
+    font-family:'Jost',sans-serif; font-weight:400;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background:var(--rose-gold); }
+
+  /* ─── HERO ─── */
+  #hero {
+    position:relative; height:100vh; min-height:700px;
+    display:flex; align-items:center; overflow:hidden;
+  }
+  .hero-bg {
+    position:absolute; inset:0;
+    background: linear-gradient(135deg,
+      #fdf0f3 0%, #f9e8ed 30%, #f5dce4 60%, #ecc8d5 100%);
+  }
+  .hero-orbs {
+    position:absolute; inset:0; pointer-events:none;
+  }
+  .orb {
+    position:absolute; border-radius:50%;
+    filter:blur(80px); opacity:0.5;
+    animation: floatOrb 8s ease-in-out infinite;
+  }
+  .orb1 { width:500px;height:500px; background:#f2c4ce; top:-100px;right:-100px; animation-delay:0s; }
+  .orb2 { width:300px;height:300px; background:#c9937a44; bottom:100px;right:300px; animation-delay:3s; }
+  .orb3 { width:200px;height:200px; background:#e8a8b8; top:200px;left:200px; animation-delay:6s; }
+
+  @keyframes floatOrb {
+    0%,100% { transform:translateY(0) scale(1); }
+    50% { transform:translateY(-30px) scale(1.05); }
+  }
+
+  .hero-content {
+    position:relative; z-index:2;
+    max-width:1200px; margin:0 auto; padding:0 60px;
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+  }
+  .hero-left { animation: fadeUp 1s ease forwards; }
+  .hero-eyebrow {
+    display:inline-block;
+    font-size:11px; letter-spacing:4px; text-transform:uppercase;
+    color:var(--rose-gold); margin-bottom:24px;
+    padding-bottom:12px; border-bottom:1px solid var(--blush-mid);
+  }
+  .hero-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(48px,5vw,80px); font-weight:300; line-height:1.1;
+    color:var(--deep); margin-bottom:28px;
+  }
+  .hero-title em { font-style:italic; color:var(--rose-gold); }
+  .hero-subtitle {
+    font-size:15px; line-height:1.8; color:var(--muted);
+    max-width:400px; margin-bottom:44px; font-weight:300;
+  }
+  .hero-actions { display:flex; gap:16px; align-items:center; }
+  .btn-primary {
+    background:var(--deep); color:var(--white);
+    padding:16px 36px; font-size:12px; letter-spacing:2px;
+    text-transform:uppercase; border:none; cursor:pointer;
+    font-family:'Jost',sans-serif; transition:all 0.3s;
+  }
+  .btn-primary:hover { background:var(--rose-gold); transform:translateY(-2px); }
+  .btn-ghost {
+    background:transparent; color:var(--deep);
+    padding:16px 36px; font-size:12px; letter-spacing:2px;
+    text-transform:uppercase; border:1px solid var(--blush-mid); cursor:pointer;
+    font-family:'Jost',sans-serif; transition:all 0.3s;
+  }
+  .btn-ghost:hover { border-color:var(--deep); transform:translateY(-2px); }
+
+  .hero-right {
+    position:relative; animation: fadeUp 1s 0.3s ease forwards; opacity:0;
+  }
+  .hero-image-frame {
+    position:relative;
+    background:linear-gradient(145deg,#fff,#fdf0f3);
+    border-radius:4px; overflow:hidden;
+    box-shadow: var(--shadow-lg);
+    height:520px;
+  }
+  .hero-image-frame img {
+    width:100%; height:100%; object-fit:cover;
+  }
+  .hero-image-placeholder {
+    width:100%;height:100%;
+    background:linear-gradient(145deg,#f8e8ed,#f2c4ce,#e8a8b8);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .spa-icon { font-size:80px; margin-bottom:16px; opacity:0.5; }
+  .hero-badge {
+    position:absolute; bottom:-24px; left:-24px;
+    background:var(--white); padding:20px 24px;
+    box-shadow:var(--shadow); border-left:3px solid var(--rose-gold);
+  }
+  .badge-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size:40px; color:var(--deep); line-height:1;
+  }
+  .badge-text { font-size:11px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; }
+  .hero-stats {
+    position:absolute; top:-20px; right:-20px;
+    background:var(--deep); color:var(--white);
+    padding:20px 24px; text-align:center;
+  }
+  .stat-num {
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px; display:block; line-height:1;
+  }
+  .stat-label { font-size:10px; letter-spacing:2px; opacity:0.7; text-transform:uppercase; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .scroll-indicator {
+    position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    animation:bounce 2s ease infinite;
+  }
+  .scroll-line { width:1px;height:60px; background:linear-gradient(var(--blush-mid),transparent); }
+  .scroll-text { font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase; }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)} }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section { padding:100px 60px; max-width:1200px; margin:0 auto; }
+  .section-full { padding:100px 0; }
+  .section-eyebrow {
+    font-size:11px; letter-spacing:4px; text-transform:uppercase;
+    color:var(--rose-gold); margin-bottom:16px;
+  }
+  .section-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(36px,4vw,58px); font-weight:300; color:var(--deep);
+    line-height:1.15; margin-bottom:20px;
+  }
+  .section-title em { font-style:italic; }
+  .section-subtitle {
+    font-size:15px;line-height:1.8;color:var(--muted);
+    max-width:520px; font-weight:300;
+  }
+  .section-header { margin-bottom:64px; }
+
+  /* ─── SERVICES ─── */
+  #services { background:var(--white); }
+  .services-inner { max-width:1200px;margin:0 auto;padding:100px 60px; }
+  .services-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    margin-top:64px;
+  }
+  .service-card {
+    background:var(--porcelain); padding:48px 36px;
+    position:relative; overflow:hidden; cursor:pointer;
+    transition:all 0.4s;
+  }
+  .service-card::before {
+    content:''; position:absolute; bottom:0; left:0;
+    width:100%; height:3px;
+    background:linear-gradient(90deg,var(--blush-mid),var(--rose-gold));
+    transform:scaleX(0); transform-origin:left; transition:transform 0.4s;
+  }
+  .service-card:hover::before { transform:scaleX(1); }
+  .service-card:hover { background:var(--white); box-shadow:var(--shadow); }
+  .service-icon { font-size:36px; margin-bottom:24px; display:block; }
+  .service-name {
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px; font-weight:400; color:var(--deep); margin-bottom:12px;
+  }
+  .service-desc { font-size:13px;line-height:1.8;color:var(--muted);font-weight:300; }
+  .service-arrow {
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--rose-gold); margin-top:24px; text-decoration:none;
+    transition:gap 0.3s;
+  }
+  .service-card:hover .service-arrow { gap:14px; }
+
+  /* ─── PROCESS ─── */
+  #process { background:var(--deep); }
+  .process-inner { max-width:1200px;margin:0 auto;padding:100px 60px; }
+  .process-inner .section-title { color:var(--white); }
+  .process-inner .section-eyebrow { color:var(--blush); }
+  .process-inner .section-subtitle { color:rgba(255,255,255,0.5); }
+  .process-steps {
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin-top:64px; position:relative;
+  }
+  .process-steps::before {
+    content:''; position:absolute;top:32px;left:10%;right:10%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--blush-mid),transparent);
+  }
+  .process-step { padding:0 24px; text-align:center; }
+  .step-num {
+    width:64px;height:64px;border-radius:50%;
+    background:rgba(242,196,206,0.1);border:1px solid var(--blush-mid);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--blush);
+    margin:0 auto 28px;
+  }
+  .step-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;color:var(--white);margin-bottom:12px;
+  }
+  .step-desc { font-size:12px;line-height:1.8;color:rgba(255,255,255,0.4);font-weight:300; }
+
+  /* ─── TEAM ─── */
+  #team { background:var(--ivory); }
+  .team-inner { max-width:1200px;margin:0 auto;padding:100px 60px; }
+  .team-grid {
+    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+    margin-top:64px;
+  }
+  .doctor-card {
+    background:var(--white);overflow:hidden;
+    box-shadow:var(--shadow); transition:all 0.4s;
+  }
+  .doctor-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+  .doctor-image {
+    height:320px;overflow:hidden;
+    background:linear-gradient(145deg,#f8e8ed,#f2c4ce);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .doctor-avatar { font-size:100px; opacity:0.4; }
+  .doctor-badge {
+    position:absolute;bottom:16px;right:16px;
+    background:var(--deep);color:var(--white);
+    padding:8px 14px;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  }
+  .doctor-info { padding:28px; }
+  .doctor-name {
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;color:var(--deep);margin-bottom:6px;
+  }
+  .doctor-title { font-size:12px;color:var(--rose-gold);letter-spacing:1px;margin-bottom:16px; }
+  .doctor-certs { display:flex;flex-wrap:wrap;gap:8px; }
+  .cert {
+    background:var(--blush-light);color:var(--muted);
+    padding:4px 12px;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials {
+    background:linear-gradient(135deg,#fdf0f3,#f9e8ed);
+    padding:100px 60px;
+  }
+  .testimonials-inner { max-width:1200px;margin:0 auto; }
+  .testimonials-grid {
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    margin-top:64px;
+  }
+  .testimonial-card {
+    background:var(--white);padding:40px;
+    border-top:3px solid var(--blush);
+    box-shadow:var(--shadow);
+  }
+  .stars { color:var(--rose-gold);font-size:16px;margin-bottom:20px; }
+  .testimonial-text {
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;font-style:italic;line-height:1.6;
+    color:var(--deep);margin-bottom:24px;
+  }
+  .testimonial-author { display:flex;align-items:center;gap:14px; }
+  .author-avatar {
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blush),var(--blush-mid));
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .author-name { font-size:13px;font-weight:500;color:var(--deep); }
+  .author-detail { font-size:11px;color:var(--muted);letter-spacing:1px; }
+
+  /* ─── BOOKING FORM ─── */
+  #booking { background:var(--white); padding:100px 60px; }
+  .booking-inner {
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
+  }
+  .booking-form { background:var(--porcelain);padding:48px; }
+  .form-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;color:var(--deep);margin-bottom:32px;
+  }
+  .form-row { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+  .form-group { margin-bottom:20px; }
+  .form-label { font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px; }
+  .form-input, .form-select, .form-textarea {
+    width:100%;padding:14px 16px;
+    background:var(--white);border:1px solid rgba(242,196,206,0.5);
+    font-family:'Jost',sans-serif;font-size:14px;color:var(--deep);
+    outline:none;transition:border-color 0.3s;
+    appearance:none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color:var(--blush-mid);
+  }
+  .form-textarea { height:120px;resize:vertical; }
+  .form-submit {
+    width:100%;background:var(--deep);color:var(--white);
+    padding:18px;font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    border:none;cursor:pointer;font-family:'Jost',sans-serif;
+    transition:all 0.3s;
+  }
+  .form-submit:hover { background:var(--rose-gold); }
+  .booking-info { padding-top:20px; }
+  .info-item {
+    display:flex;gap:20px;align-items:flex-start;
+    padding:28px 0;border-bottom:1px solid rgba(242,196,206,0.4);
+  }
+  .info-icon { font-size:24px;color:var(--rose-gold);flex-shrink:0;padding-top:2px; }
+  .info-label { font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px; }
+  .info-value { font-size:15px;color:var(--deep); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background:var(--deep);color:rgba(255,255,255,0.6);
+    padding:60px 60px 32px;
+  }
+  .footer-inner { max-width:1200px;margin:0 auto; }
+  .footer-top {
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
+    padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .nav-logo { color:var(--white);margin-bottom:16px;display:block; }
+  .footer-desc { font-size:13px;line-height:1.8;max-width:280px; }
+  .footer-col-title {
+    font-size:11px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--blush);margin-bottom:20px;
+  }
+  .footer-links { list-style:none; }
+  .footer-links li { margin-bottom:12px; }
+  .footer-links a { font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.3s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-bottom {
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:24px;font-size:12px;
+  }
+
+  /* ─── AI CHATBOT ─── */
+  #ai-toggle {
+    position:fixed;bottom:32px;right:32px;z-index:1000;
+    width:64px;height:64px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blush-mid),var(--rose-gold));
+    border:none;cursor:pointer;box-shadow:0 8px 32px rgba(201,147,122,0.4);
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;transition:all 0.3s;
+  }
+  #ai-toggle:hover { transform:scale(1.1); box-shadow:0 12px 48px rgba(201,147,122,0.5); }
+
+  #ai-widget {
+    position:fixed;bottom:112px;right:32px;z-index:1000;
+    width:400px;
+    background:var(--white);
+    box-shadow:0 32px 100px rgba(58,45,53,0.18);
+    border-radius:4px;overflow:hidden;
+    transform:scale(0.9) translateY(20px);opacity:0;
+    pointer-events:none;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  #ai-widget.open {
+    transform:scale(1) translateY(0);opacity:1;pointer-events:all;
+  }
+  .ai-header {
+    background:linear-gradient(135deg,var(--deep),#5a4551);
+    padding:20px 24px;display:flex;align-items:center;gap:14px;
+  }
+  .ai-avatar {
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blush),var(--rose-gold));
+    display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+  }
+  .ai-name { font-size:14px;font-weight:500;color:var(--white); }
+  .ai-status { font-size:11px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:6px; }
+  .ai-dot { width:6px;height:6px;border-radius:50%;background:#7ecb8a;animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+  .ai-close {
+    margin-left:auto;background:none;border:none;color:rgba(255,255,255,0.5);
+    cursor:pointer;font-size:20px;padding:4px;
+  }
+
+  .ai-messages {
+    height:320px;overflow-y:auto;padding:20px;
+    display:flex;flex-direction:column;gap:12px;
+    background:var(--porcelain);
+    scroll-behavior:smooth;
+  }
+  .ai-messages::-webkit-scrollbar { width:4px; }
+  .ai-messages::-webkit-scrollbar-track { background:transparent; }
+  .ai-messages::-webkit-scrollbar-thumb { background:var(--blush-mid);border-radius:2px; }
+
+  .msg {
+    display:flex;gap:10px;align-items:flex-end;
+    animation:msgIn 0.3s ease forwards;
+  }
+  @keyframes msgIn { from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)} }
+  .msg.user { flex-direction:row-reverse; }
+  .msg-bubble {
+    max-width:78%;padding:12px 16px;font-size:13px;line-height:1.6;
+    border-radius:4px;
+  }
+  .msg.bot .msg-bubble { background:var(--white);color:var(--deep);box-shadow:0 2px 8px rgba(58,45,53,0.06); }
+  .msg.user .msg-bubble { background:var(--deep);color:var(--white); }
+  .msg-avatar { width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px; }
+  .msg.bot .msg-avatar { background:linear-gradient(135deg,var(--blush),var(--rose-gold)); }
+  .msg.user .msg-avatar { background:var(--muted);color:var(--white); }
+
+  .typing-indicator {
+    display:flex;gap:4px;align-items:center;padding:4px 0;
+  }
+  .typing-dot {
+    width:6px;height:6px;border-radius:50%;background:var(--muted);
+    animation:typingBounce 1.2s ease infinite;
+  }
+  .typing-dot:nth-child(2){animation-delay:0.2s}
+  .typing-dot:nth-child(3){animation-delay:0.4s}
+  @keyframes typingBounce { 0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)} }
+
+  /* Quiz Options */
+  .quiz-options { display:flex;flex-wrap:wrap;gap:8px;margin-top:8px; }
+  .quiz-btn {
+    padding:8px 14px;background:var(--blush-light);
+    border:1px solid var(--blush);color:var(--deep);
+    font-size:12px;cursor:pointer;font-family:'Jost',sans-serif;
+    transition:all 0.2s;border-radius:2px;
+  }
+  .quiz-btn:hover { background:var(--blush);border-color:var(--blush-mid); }
+
+  .ai-input-area {
+    padding:16px;border-top:1px solid rgba(242,196,206,0.3);
+    background:var(--white);display:flex;gap:10px;align-items:center;
+  }
+  .ai-input {
+    flex:1;padding:10px 14px;background:var(--porcelain);
+    border:1px solid rgba(242,196,206,0.5);font-family:'Jost',sans-serif;
+    font-size:13px;color:var(--deep);outline:none;border-radius:2px;
+    transition:border-color 0.3s;
+  }
+  .ai-input:focus { border-color:var(--blush-mid); }
+  .ai-send {
+    width:40px;height:40px;background:var(--deep);color:var(--white);
+    border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:16px;transition:background 0.3s;flex-shrink:0;border-radius:2px;
+  }
+  .ai-send:hover { background:var(--rose-gold); }
+
+  /* ─── ANIMATIONS ─── */
+  .reveal {
+    opacity:0;transform:translateY(30px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity:1;transform:translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:900px){
+    nav { padding:16px 24px; }
+    .nav-links { display:none; }
+    .hero-content { grid-template-columns:1fr;gap:40px;padding:0 24px; }
+    .hero-right { display:none; }
+    .section { padding:60px 24px; }
+    .services-inner,.process-inner,.team-inner,.testimonials-inner,.booking-inner { padding:60px 24px; }
+    .services-grid { grid-template-columns:1fr; }
+    .process-steps { grid-template-columns:1fr 1fr; }
+    .team-grid { grid-template-columns:1fr; }
+    .testimonials-grid { grid-template-columns:1fr; }
+    .booking-inner { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+    #ai-widget { width:calc(100vw - 32px);right:16px;bottom:96px; }
+    #booking { padding:60px 24px; }
+    #testimonials { padding:60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">Lumière <span>Aesthetics</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Dịch vụ</a></li>
+    <li><a href="#team">Đội ngũ</a></li>
+    <li><a href="#testimonials">Khách hàng</a></li>
+    <li><a href="#booking">Đặt lịch</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Tư vấn miễn phí</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <span class="hero-eyebrow">✦ Thẩm mỹ viện quốc tế</span>
+      <h1 class="hero-title">Đánh thức<br><em>vẻ đẹp tự nhiên</em><br>của bạn</h1>
+      <p class="hero-subtitle">Kết hợp tinh hoa y học thẩm mỹ hiện đại cùng triết lý chăm sóc toàn diện, chúng tôi giúp bạn tự tin tỏa sáng với vẻ đẹp đích thực nhất.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Đặt lịch tư vấn</button>
+        <button class="btn-ghost" onclick="openAI()">Tư vấn AI ✨</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-frame">
+        <div class="hero-image-placeholder">
+          <div class="spa-icon">🌸</div>
+          <p style="color:#c9937a;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic">Không gian thư giãn cao cấp</p>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-num">15+</div>
+        <div class="badge-text">Năm kinh nghiệm</div>
+      </div>
+      <div class="hero-stats">
+        <span class="stat-num">5000+</span>
+        <span class="stat-label">Khách hàng tin tưởng</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Khám phá</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">✦ Dịch vụ tiêu biểu</div>
+      <h2 class="section-title">Giải pháp làm đẹp<br><em>toàn diện & chuyên sâu</em></h2>
+      <p class="section-subtitle">Từng liệu trình được cá nhân hóa, thiết kế riêng cho từng làn da và nhu cầu độc đáo của bạn.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-icon">🌟</span>
+        <div class="service-name">Trị Nám & Tàn Nhang</div>
+        <p class="service-desc">Công nghệ laser thế hệ mới kết hợp liệu pháp serum chuyên sâu, xóa mờ nám, tàn nhang hiệu quả mà không xâm lấn.</p>
+        <a class="service-arrow" href="#">Xem chi tiết →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">✨</span>
+        <div class="service-name">Nâng Cơ Trẻ Hóa</div>
+        <p class="service-desc">Hifu, Ultherapy và chỉ collagen sinh học giúp nâng cơ, xóa nhăn, tái tạo làn da tươi trẻ bền vững.</p>
+        <a class="service-arrow" href="#">Xem chi tiết →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">💉</span>
+        <div class="service-name">Filler & Botox</div>
+        <p class="service-desc">Tiêm filler HA cao cấp và botox tinh chất, tạo đường nét hài hòa tự nhiên dưới bàn tay bác sĩ chuyên khoa.</p>
+        <a class="service-arrow" href="#">Xem chi tiết →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🧬</span>
+        <div class="service-name">Trị Mụn Chuyên Sâu</div>
+        <p class="service-desc">Phác đồ chuẩn y khoa kết hợp ánh sáng sinh học và hoạt chất điều trị, giải quyết mụn tận gốc.</p>
+        <a class="service-arrow" href="#">Xem chi tiết →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🌸</span>
+        <div class="service-name">Chăm Sóc Da Mặt Premium</div>
+        <p class="service-desc">Liệu trình spa cao cấp sử dụng mỹ phẩm thuần chay hữu cơ, nuôi dưỡng từ sâu bên trong.</p>
+        <a class="service-arrow" href="#">Xem chi tiết →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">💎</span>
+        <div class="service-name">PRP Huyết Tương Giàu Tiểu Cầu</div>
+        <p class="service-desc">Liệu pháp tự thân tiên tiến, tái tạo tế bào da bằng chính nguồn dưỡng chất quý giá từ cơ thể.</p>
+        <a class="service-arrow" href="#">Xem chi tiết →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">✦ Quy trình 4 bước</div>
+      <h2 class="section-title" style="color:var(--white)">Hành trình làm đẹp<br><em style="color:var(--blush)">an toàn & hiệu quả</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Tư vấn & Phân tích da</div>
+        <p class="step-desc">Bác sĩ thăm khám trực tiếp, phân tích tình trạng da bằng thiết bị hiện đại.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Thiết kế phác đồ</div>
+        <p class="step-desc">Xây dựng lộ trình điều trị cá nhân hóa, phù hợp với nhu cầu và ngân sách.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Thực hiện liệu trình</div>
+        <p class="step-desc">Thực hiện bởi đội ngũ bác sĩ được đào tạo tại Châu Âu và Hàn Quốc.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Theo dõi & Chăm sóc</div>
+        <p class="step-desc">Hỗ trợ sau liệu trình, tái khám định kỳ để đảm bảo kết quả tối ưu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">✦ Đội ngũ chuyên gia</div>
+      <h2 class="section-title">Bác sĩ uy tín<br><em>hàng đầu Việt Nam</em></h2>
+      <p class="section-subtitle">Đội ngũ được đào tạo tại các viện thẩm mỹ danh tiếng Pháp, Hàn Quốc và Hoa Kỳ.</p>
+    </div>
+    <div class="team-grid">
+      <div class="doctor-card reveal">
+        <div class="doctor-image">
+          <span class="doctor-avatar">👩‍⚕️</span>
+          <div class="doctor-badge">Giám đốc Y khoa</div>
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-name">BS. CKI Nguyễn Thảo Linh</div>
+          <div class="doctor-title">Chuyên khoa Da liễu & Thẩm mỹ</div>
+          <div class="doctor-certs">
+            <span class="cert">Paris Derm Institute</span>
+            <span class="cert">15 năm KN</span>
+            <span class="cert">ISAPS</span>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-image">
+          <span class="doctor-avatar">👨‍⚕️</span>
+          <div class="doctor-badge">Trưởng khoa Phẫu thuật</div>
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-name">BS. CK2 Trần Minh Khoa</div>
+          <div class="doctor-title">Phẫu thuật tạo hình & Thẩm mỹ</div>
+          <div class="doctor-certs">
+            <span class="cert">Seoul NUH</span>
+            <span class="cert">12 năm KN</span>
+            <span class="cert">VAPS</span>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-image">
+          <span class="doctor-avatar">👩‍⚕️</span>
+          <div class="doctor-badge">Chuyên gia Laser</div>
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-name">BS. Phạm Như Quỳnh</div>
+          <div class="doctor-title">Da liễu – Công nghệ cao</div>
+          <div class="doctor-certs">
+            <span class="cert">UCLA Extension</span>
+            <span class="cert">10 năm KN</span>
+            <span class="cert">AAD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-eyebrow">✦ Cảm nhận khách hàng</div>
+      <h2 class="section-title">Hàng nghìn khách hàng<br><em>đã tin tưởng chúng tôi</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Làn da tôi thay đổi hoàn toàn sau 3 tháng điều trị nám. Bác sĩ rất tận tâm, giải thích rõ từng bước."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">🌸</div>
+          <div>
+            <div class="author-name">Chị Hương Giang</div>
+            <div class="author-detail">Khách hàng · Hà Nội</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Dịch vụ filler tại đây khiến tôi trông trẻ hơn 5 tuổi mà vẫn tự nhiên. Sẽ quay lại chắc chắn!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">💐</div>
+          <div>
+            <div class="author-name">Chị Minh Châu</div>
+            <div class="author-detail">Khách hàng · TP.HCM</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Không gian spa sang trọng, đội ngũ chuyên nghiệp. Cảm giác được chăm sóc như một VIP thực sự."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">🌷</div>
+          <div>
+            <div class="author-name">Chị Thu Phương</div>
+            <div class="author-detail">Khách hàng · Đà Nẵng</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="booking-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">✦ Đặt lịch hẹn</div>
+      <h2 class="section-title" style="margin-bottom:16px">Bắt đầu hành trình<br><em>làm đẹp của bạn</em></h2>
+      <p class="section-subtitle" style="margin-bottom:0">Điền thông tin để được tư vấn miễn phí. Chúng tôi sẽ liên hệ trong vòng 30 phút.</p>
+    </div>
+    <div class="booking-form reveal">
+      <div class="form-title">Thông tin đặt lịch</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Họ và tên</label>
+          <input class="form-input" type="text" placeholder="Nguyễn Thị A">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Số điện thoại</label>
+          <input class="form-input" type="tel" placeholder="0901 234 567">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Dịch vụ quan tâm</label>
+        <select class="form-select">
+          <option value="">Chọn dịch vụ</option>
+          <option>Trị Nám & Tàn Nhang</option>
+          <option>Nâng Cơ Trẻ Hóa</option>
+          <option>Filler & Botox</option>
+          <option>Trị Mụn Chuyên Sâu</option>
+          <option>Chăm Sóc Da Mặt Premium</option>
+          <option>PRP Huyết Tương</option>
+          <option>Tư vấn tổng quát</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ngày hẹn</label>
+          <input class="form-input" type="date">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Giờ hẹn</label>
+          <select class="form-select">
+            <option>9:00 — 10:00</option>
+            <option>10:00 — 11:00</option>
+            <option>13:00 — 14:00</option>
+            <option>14:00 — 15:00</option>
+            <option>15:00 — 16:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Vấn đề da cần tư vấn</label>
+        <textarea class="form-textarea" placeholder="Mô tả ngắn gọn tình trạng da bạn muốn cải thiện..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleBooking()">Đặt lịch tư vấn miễn phí →</button>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;display:flex;gap:0;margin-top:64px;flex-wrap:wrap">
+    <div class="info-item" style="flex:1;min-width:200px">
+      <div class="info-icon">📍</div>
+      <div>
+        <div class="info-label">Địa chỉ</div>
+        <div class="info-value">123 Đường Hoa Lan, Quận 1, TP.HCM</div>
+      </div>
+    </div>
+    <div class="info-item" style="flex:1;min-width:200px">
+      <div class="info-icon">📞</div>
+      <div>
+        <div class="info-label">Hotline 24/7</div>
+        <div class="info-value">1800 1234 · 0901 234 567</div>
+      </div>
+    </div>
+    <div class="info-item" style="flex:1;min-width:200px">
+      <div class="info-icon">🕐</div>
+      <div>
+        <div class="info-label">Giờ làm việc</div>
+        <div class="info-value">Thứ 2 – Chủ nhật: 9:00 – 19:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo">Lumière <span style="color:var(--blush-mid)">Aesthetics</span></span>
+        <p class="footer-desc">Thẩm mỹ viện quốc tế chuyên về chăm sóc da và phẫu thuật thẩm mỹ nội khoa, mang đến vẻ đẹp tự nhiên bền vững.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Dịch vụ</div>
+        <ul class="footer-links">
+          <li><a href="#">Trị Nám & Tàn Nhang</a></li>
+          <li><a href="#">Nâng Cơ Trẻ Hóa</a></li>
+          <li><a href="#">Filler & Botox</a></li>
+          <li><a href="#">Trị Mụn</a></li>
+          <li><a href="#">PRP</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Về chúng tôi</div>
+        <ul class="footer-links">
+          <li><a href="#">Câu chuyện thương hiệu</a></li>
+          <li><a href="#">Đội ngũ bác sĩ</a></li>
+          <li><a href="#">Chứng nhận & Giải thưởng</a></li>
+          <li><a href="#">Blog làm đẹp</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Liên hệ</div>
+        <ul class="footer-links">
+          <li><a href="#">Đặt lịch hẹn</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Zalo OA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Lumière Aesthetics. All rights reserved.</span>
+      <span>Giấy phép CSSK số 1234/GP-BYT</span>
+    </div>
+  </div>
+</footer>
+
+<!-- AI CHATBOT TOGGLE -->
+<button id="ai-toggle" onclick="toggleAI()" title="Tư vấn AI">🌸</button>
+
+<!-- AI WIDGET -->
+<div id="ai-widget">
+  <div class="ai-header">
+    <div class="ai-avatar">✨</div>
+    <div>
+      <div class="ai-name">Chuyên viên tư vấn ảo</div>
+      <div class="ai-status"><span class="ai-dot"></span>Đang hoạt động</div>
+    </div>
+    <button class="ai-close" onclick="toggleAI()">✕</button>
+  </div>
+  <div class="ai-messages" id="ai-messages"></div>
+  <div class="ai-input-area">
+    <input class="ai-input" id="ai-input" placeholder="Nhập câu hỏi của bạn..." onkeydown="if(event.key==='Enter')sendMsg()">
+    <button class="ai-send" onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script>
+// ─── SCROLL REVEAL ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ─── AI WIDGET ───
+let aiOpen = false;
+let conversationHistory = [];
+let quizState = { step: 0, answers: {} };
+let awaitingQuiz = false;
+
+function toggleAI() {
+  aiOpen = !aiOpen;
+  document.getElementById('ai-widget').classList.toggle('open', aiOpen);
+  if (aiOpen && document.getElementById('ai-messages').children.length === 0) {
+    startConversation();
+  }
+}
+function openAI() {
+  aiOpen = true;
+  document.getElementById('ai-widget').classList.add('open');
+  if (document.getElementById('ai-messages').children.length === 0) {
+    startConversation();
+  }
+}
+
+function startConversation() {
+  addBotMessage("Xin chào! Tôi là Chuyên viên tư vấn ảo của Lumière Aesthetics 🌸\n\nTôi có thể giúp bạn phân tích tình trạng da và gợi ý dịch vụ phù hợp nhất. Bạn muốn bắt đầu bằng cách nào?", [
+    { text: "🔍 Phân tích da nhanh", action: () => startQuiz() },
+    { text: "💬 Hỏi về dịch vụ", action: () => addBotMessage("Lumière Aesthetics cung cấp đầy đủ các dịch vụ từ trị nám, nâng cơ, filler, botox đến PRP và chăm sóc da mặt cao cấp. Bạn quan tâm đến vấn đề nào của làn da mình?") },
+    { text: "📅 Đặt lịch ngay", action: () => { toggleAI(); document.getElementById('booking').scrollIntoView({behavior:'smooth'}); } }
+  ]);
+}
+
+const quizQuestions = [
+  {
+    q: "Da bạn thuộc loại nào?",
+    key: "skinType",
+    opts: ["Da dầu", "Da khô", "Da hỗn hợp", "Da nhạy cảm"]
+  },
+  {
+    q: "Vấn đề da bạn lo ngại nhất?",
+    key: "concern",
+    opts: ["Nám / Tàn nhang", "Mụn / Sẹo", "Nhăn / Lão hóa", "Da xỉn màu"]
+  },
+  {
+    q: "Bạn muốn kết quả trong bao lâu?",
+    key: "timeline",
+    opts: ["Dưới 1 tháng", "1–3 tháng", "Lâu dài (6 tháng+)"]
+  }
+];
+
+function startQuiz() {
+  quizState = { step: 0, answers: {} };
+  awaitingQuiz = true;
+  askQuizQuestion();
+}
+
+function askQuizQuestion() {
+  const q = quizQuestions[quizState.step];
+  addBotMessage(`Câu ${quizState.step + 1}/3: ${q.q}`, q.opts.map(o => ({ text: o, action: () => answerQuiz(o) })));
+}
+
+function answerQuiz(answer) {
+  const q = quizQuestions[quizState.step];
+  quizState.answers[q.key] = answer;
+  addUserMessage(answer);
+  quizState.step++;
+
+  if (quizState.step < quizQuestions.length) {
+    setTimeout(askQuizQuestion, 600);
+  } else {
+    awaitingQuiz = false;
+    setTimeout(() => analyzeWithAI(), 600);
+  }
+}
+
+async function analyzeWithAI() {
+  const { skinType, concern, timeline } = quizState.answers;
+  showTyping();
+
+  const systemPrompt = `Bạn là chuyên viên tư vấn thẩm mỹ cao cấp của Lumière Aesthetics - một thẩm mỹ viện quốc tế uy tín tại Việt Nam. 
+Nhiệm vụ của bạn là phân tích tình trạng da dựa trên thông tin khách hàng cung cấp và gợi ý dịch vụ phù hợp nhất.
+Luôn trả lời bằng tiếng Việt, thân thiện, chuyên nghiệp và ngắn gọn (tối đa 3-4 câu).
+Sau khi gợi ý dịch vụ, hãy khuyến khích khách đặt lịch tư vấn miễn phí.
+Các dịch vụ có thể gợi ý: Trị Nám & Tàn Nhang, Nâng Cơ Trẻ Hóa, Filler & Botox, Trị Mụn Chuyên Sâu, PRP Huyết Tương, Chăm Sóc Da Mặt Premium.`;
+
+  const userMsg = `Khách hàng có làn da ${skinType}, vấn đề chính là ${concern}, và mong muốn kết quả trong ${timeline}. Hãy phân tích và gợi ý dịch vụ phù hợp nhất cho họ.`;
+
+  conversationHistory.push({ role: "user", content: userMsg });
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: conversationHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.map(b => b.text || "").join("") || "Xin lỗi, có lỗi xảy ra. Vui lòng liên hệ hotline 1800 1234.";
+    conversationHistory.push({ role: "assistant", content: reply });
+    removeTyping();
+    addBotMessage(reply, [
+      { text: "📅 Đặt lịch ngay", action: () => { toggleAI(); document.getElementById('booking').scrollIntoView({behavior:'smooth'}); } },
+      { text: "🔄 Bắt đầu lại", action: () => startQuiz() }
+    ]);
+  } catch (err) {
+    removeTyping();
+    addBotMessage("Tôi gặp sự cố kết nối. Vui lòng gọi hotline 1800 1234 để được tư vấn trực tiếp!", [
+      { text: "📅 Đặt lịch hẹn", action: () => { toggleAI(); document.getElementById('booking').scrollIntoView({behavior:'smooth'}); } }
+    ]);
+  }
+}
+
+async function sendMsg() {
+  const input = document.getElementById('ai-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addUserMessage(text);
+
+  conversationHistory.push({ role: "user", content: text });
+  showTyping();
+
+  const systemPrompt = `Bạn là chuyên viên tư vấn của Lumière Aesthetics - thẩm mỹ viện quốc tế. Trả lời ngắn gọn (2-3 câu), thân thiện bằng tiếng Việt. 
+Nếu phù hợp, gợi ý khách đặt lịch tư vấn miễn phí. Dịch vụ: Trị Nám, Nâng Cơ, Filler, Botox, Trị Mụn, PRP, Chăm Sóc Da.`;
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: conversationHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.map(b => b.text || "").join("") || "Xin lỗi, vui lòng thử lại.";
+    conversationHistory.push({ role: "assistant", content: reply });
+    removeTyping();
+    addBotMessage(reply);
+  } catch {
+    removeTyping();
+    addBotMessage("Xin lỗi, tôi gặp sự cố. Vui lòng gọi hotline 1800 1234!");
+  }
+}
+
+function addBotMessage(text, options = []) {
+  const msgs = document.getElementById('ai-messages');
+  const div = document.createElement('div');
+  div.className = 'msg bot';
+  div.innerHTML = `<div class="msg-avatar">✨</div><div><div class="msg-bubble">${text.replace(/\n/g,'<br>')}</div>${
+    options.length ? `<div class="quiz-options">${options.map((o,i)=>`<button class="quiz-btn" id="qbtn_${Date.now()}_${i}">${o.text}</button>`).join('')}</div>` : ''
+  }</div>`;
+  msgs.appendChild(div);
+  // attach handlers
+  options.forEach((o, i) => {
+    const btn = div.querySelector(`#qbtn_${Date.now()}_${i}`) || div.querySelectorAll('.quiz-btn')[i];
+    if (btn) btn.onclick = () => { div.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true); o.action(); };
+  });
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById('ai-messages');
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  div.innerHTML = `<div class="msg-avatar" style="background:var(--muted)">👤</div><div class="msg-bubble">${text}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('ai-messages');
+  const div = document.createElement('div');
+  div.className = 'msg bot'; div.id = 'typing-indicator';
+  div.innerHTML = `<div class="msg-avatar">✨</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+function handleBooking() {
+  alert('Cảm ơn bạn đã đặt lịch! Chúng tôi sẽ liên hệ xác nhận trong vòng 30 phút. 🌸');
+}
+</script>
+</body>
+</html>
